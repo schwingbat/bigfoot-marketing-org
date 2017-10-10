@@ -1,0 +1,32 @@
+<h2>Edit Project</h2>
+
+<%= form_with(model: @project) do |form| %>
+  <% if @project.errors.any? %>
+    <div id="error-explanation">
+      <h2>
+        Fix these <%= pluralize(@project.errors.count, 'error') %>:
+      </h2>
+      <ul>
+        <% @project.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', projects_path %>
