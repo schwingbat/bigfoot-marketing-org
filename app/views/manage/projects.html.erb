@@ -1,0 +1,21 @@
+<h1>Manage Projects</h1>
+
+<%= link_to 'Create New Project', new_project_path %>
+
+<% if @projects %>
+  <ul>
+    <% @projects.each do |project| %>
+      <li>
+        <strong>Title: </strong><%= project.title %><br>
+        <strong>Description: </strong><%= project.description %><br>
+        <%= link_to 'Details', project_path(project) %>
+        <%= link_to 'Edit', edit_project_path(project) %>
+      </li>
+      <br>
+    <% end %>
+  </ul>
+<% else %>
+  <p>
+    You don't have any projects yet.
+  </p>
+<% end %>

@@ -1,0 +1,9 @@
+<p>
+  Welcome to Bigfoot Marketing! We do graphic design and marketing for events organized by Bigfoot Events and SCC student organizations and clubs.
+</p>
+
+<% if !user_signed_in? %>
+  <p>
+    We use this site to keep track of graphics requests. Just <%= link_to 'create an account', new_user_registration_path %> with your email address and you'll be able to submit graphics requests, keep track of projects you've submitted and get notified when your materials are ready for pickup.
+  </p>
+<% end %>
