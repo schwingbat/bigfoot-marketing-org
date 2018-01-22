@@ -9,8 +9,6 @@ ruby '2.4.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
-# Use Postgres as the database for Active Record
-gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -59,3 +57,9 @@ gem "devise", "~> 4.3"
 
 # Added at 2018-01-22 10:55:53 -0800 by schwingbat:
 gem "active_link_to", "~> 1.0"
+
+# Added at 2018-01-22 15:08:54 -0800 by schwingbat:
+gem "bundler", "~> 1.16"
+
+# Added at 2018-01-22 15:10:26 -0800 by schwingbat:
+gem "pg", "~> 1.0"

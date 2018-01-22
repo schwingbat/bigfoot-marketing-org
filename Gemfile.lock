@@ -194,13 +194,14 @@ PLATFORMS
 
 DEPENDENCIES
   active_link_to (~> 1.0)
+  bundler (~> 1.16)
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
   devise (~> 4.3)
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
-  pg
+  pg (~> 1.0)
   puma (~> 3.7)
   rails (~> 5.1.4)
   sass-rails (~> 5.0)
