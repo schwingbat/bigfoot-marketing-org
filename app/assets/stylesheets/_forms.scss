@@ -1,0 +1,105 @@
+$input-bg-color: lighten($background-color, 10%);
+$input-outline: 0;
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="time"],
+textarea {
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  outline: 0;
+  width: 100%;
+  color: $text-color;
+  padding: 0 0.75em;
+  font-family: $main-font;
+  margin-bottom: 1em;
+  border-radius: 4px;
+  font-size: 1em;
+  box-shadow: none;
+}
+
+input[type] {
+  height: 45px;
+  line-height: 45px;
+}
+
+form {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  max-width: 1400px;
+}
+
+form h2 {
+  margin-bottom: 0.5em;
+
+  &:not(:first-of-type) {
+    margin-top: 1em;
+  }
+}
+
+label {
+  margin-bottom: 0.2em;
+  margin-top: 0.6em;
+  display: block;
+
+  &.required {
+    &:after {
+      content: ' *';
+      color: $error-color;
+    }
+  }
+}
+
+.field-description {
+  color: transparentize($text-color, 0.5);
+  font-size: 0.9em;
+  font-style: italic;
+  padding: 0 0 0.5em 0;
+}
+
+.form-section {
+  flex: 1 1 100%;
+  background-color: #fff;
+  padding: 1em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1em;
+
+  @media (min-width: $md) {
+    border-radius: 8px;
+  }
+
+  @media (min-width: $lg) {
+    padding: 2em;
+  }
+
+  @media (min-width: $xl) {
+    flex: 1 1 42%;
+    width: 100%;
+  }
+}
+
+.form-split-line {
+  display: flex;
+  flex-flow: column nowrap;
+
+  @media (min-width: $lg) {
+    flex-flow: row wrap;
+
+    .form-set {
+      flex: 1 1 50%;
+
+      &:first-child {
+        padding-right: 1em;
+      }
+
+      &:last-child {
+        padding-left: 1em;
+      }
+    }
+  }
+}

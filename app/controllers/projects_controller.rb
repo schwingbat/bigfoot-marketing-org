@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.where(owner_id: current_user.id)
+    @projects = Project.where(user_id: current_user.id)
                        .order(created_at: :desc)
   end
 
@@ -18,7 +18,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-    @project.owner_id = current_user.id;
+    @project.user_id = current_user.id;
 
     if @project.save
       flash.notice = 'Project created.'

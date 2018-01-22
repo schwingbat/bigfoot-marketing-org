@@ -6,14 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# Group.delete_all
-# Group.create([
-#   {
-#     name: 'Bigfoot Marketing',
-#     description: 'The Bigfoot Events marketing department.',
-#     permissions: 'admin'
-#   }
-# ])
+Group.delete_all
+bfm = Group.create({
+  name: 'Bigfoot Marketing',
+  description: 'The Bigfoot Events marketing department.',
+  permissions: 'admin'
+})
 
 Format.delete_all
 Format.create([

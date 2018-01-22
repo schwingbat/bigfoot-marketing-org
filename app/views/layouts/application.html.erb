@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Website</title>
+    <meta name="viewport" content="min-width=1,width=device-width">
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,10 +12,17 @@
   <body>
     <%= render 'partials/navigation' %>
 
-    <%= yield %>
+    <main>
+      <ul class="messages-list">
+        <% flash.each do |name, message| %>
+          <li class="message message--<%= name %>">
+            <span class="message-text"><%= message %></span>
+            <a href="#" class="message-close">&times;</a>
+          </li>
+        <% end %>
+      </ul>
 
-    <% flash.each do |name, message| %>
-      <%= content_tag :div, message, class: 'alert alert-info' %>
-    <% end %>
+      <%= yield %>
+    </main>
   </body>
 </html>
