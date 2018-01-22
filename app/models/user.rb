@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :group, optional: true
+  has_many :projects
 
   def is_admin
     self.group && self.group.permissions == 'admin'

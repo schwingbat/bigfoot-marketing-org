@@ -1,0 +1,67 @@
+.messages-list {
+
+}
+
+.message {
+  padding: 1em;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &:not(:last-child) {
+    margin-bottom: 0.5em;
+  }
+}
+
+.message-close {
+  text-decoration: none;
+  font-size: 1.4em;
+  font-weight: bold;
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.message--notice {
+  background-color: $success-color;
+  color: $success-text-color;
+
+  .message-close {
+    color: darken($success-color, 20%);
+
+    &:hover {
+      background-color: darken($success-color, 10%);
+      color: $success-text-color;
+    }
+  }
+}
+
+// .message--alert {
+//   background-color: $warning-color;
+//   color: $warning-text-color;
+
+//   .message-close {
+//     color: darken($warning-color, 20%);
+
+//     &:hover {
+//       background-color: darken($warning-color, 10%);
+//       color: $warning-text-color;
+//     }
+//   }
+// }
+
+.message--alert {
+  background-color: $error-color;
+  color: $error-text-color;
+
+  .message-close {
+    color: darken($error-color, 20%);
+
+    &:hover {
+      background-color: darken($error-color, 10%);
+      color: $error-text-color;
+    }
+  }
+}

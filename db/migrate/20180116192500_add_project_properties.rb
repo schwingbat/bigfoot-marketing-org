@@ -1,7 +1,7 @@
 class AddProjectProperties < ActiveRecord::Migration[5.1]
   def change
     # Projects are owned by one user
-    add_reference :projects, :owner
+    add_reference :projects, :user
     add_foreign_key :projects, :users
 
     # Projects have many formats

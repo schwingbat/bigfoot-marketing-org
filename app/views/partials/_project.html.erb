@@ -1,0 +1,16 @@
+<div class="project-card">
+  <div class="project-card-header">
+    <%= link_to project.title, project_path(project), class: 'project-card-title' %>
+    <div class="project-card-status">
+      <span class="project-card-status-text"><%= project.status_name %></span>
+      <div class="project-card-status-bar">
+        <div class="project-card-status-fill"
+             <%= raw "style='width: #{(project.status + 1) * 25}%'" %>></div>
+      </div>
+    </div>
+  </div>
+  <div class="project-card-info">
+    
+  </div>
+  <%= link_to 'Edit', edit_project_path(project) %>
+</div>

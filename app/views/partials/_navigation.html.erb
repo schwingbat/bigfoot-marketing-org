@@ -1,17 +1,17 @@
 <header class="nav-header">
   <%= link_to root_path, class: 'nav-logo-link' do %>
-    <div class="nav-logo">BIGFOOT MARKETING</div>
+    Bigfoot Marketing
   <% end %>
-
-  <div class="nav-links">
+  <a href="#" class="mobile-nav-toggle"></a>
+  <nav class="main-nav">
     <% if user_signed_in? %>
-      <%= link_to 'Your Projects', projects_path %>
+      <%= active_link_to 'Your Projects', projects_path %>
       <% if current_user.is_admin %>
-        <%= link_to 'Manage Projects', manage_projects_path %>
+        <%= active_link_to 'Manage Projects', manage_projects_path %>
       <% end %>
-      <%= link_to 'Log Out', user_logout_path %>
+      <%= active_link_to 'Log Out', user_logout_path %>
     <% else %>
-      <%= link_to 'Log In', new_user_session_path %>
+      <%= active_link_to 'Log In', new_user_session_path %>
     <% end %>
-  </div>
+  </nav>
 </header>

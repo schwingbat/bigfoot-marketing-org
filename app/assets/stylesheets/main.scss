@@ -1,0 +1,52 @@
+$main-font: Georgia, sans-serif;
+
+$background-color: rgb(238, 234, 222);
+$text-color: #000;
+$link-color: #4A3C15;
+$link-active-color: #BB3648;
+
+// Messages
+$success-color: rgb(78, 149, 75);
+$success-text-color: #fff;
+$warning-color: rgb(255, 164, 28);
+$warning-text-color: #000;
+$error-color: #c03535;
+$error-text-color: #fff;
+
+// Breakpoints
+$md: 600px;
+$lg: 900px;
+$xl: 1100px;
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $background-color;
+  color: $text-color;
+  font-family: $main-font;
+}
+
+a {
+  color: $link-color;
+}
+
+main {
+  padding: 1em 0;
+
+  @media (min-width: $md) {
+    padding: 1em;
+  }
+}
+
+@import 'header';
+@import 'footer';
+@import 'messages';
+@import 'forms';
+@import 'login';
+@import 'projects';

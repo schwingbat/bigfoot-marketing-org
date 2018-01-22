@@ -55,3 +55,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Added at 2017-12-17 22:32:37 -0800 by schwingbat:
 gem "devise", "~> 4.3"
+
+# Added at 2018-01-22 10:55:53 -0800 by schwingbat:
+gem "active_link_to", "~> 1.0"

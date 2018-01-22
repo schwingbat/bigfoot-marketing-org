@@ -1,21 +1,32 @@
-<h1>Projects</h1>
 
 <%= link_to 'Create New Project', new_project_path %>
 
 <% if @projects %>
-  <ul>
+  <div class="projects-list">
     <% @projects.each do |project| %>
-      <li>
-        <strong>Title: </strong><%= project.title %><br>
-        <strong>Description: </strong><%= project.description %><br>
-        <%= link_to 'Details', project_path(project) %>
+      <div class="project-card">
+        <div class="project-card-header">
+          <%= link_to project.title, project_path(project), class: 'project-card-title' %>
+          <div class="project-card-status">
+            <span class="project-card-status-text"><%= project.status_name %></span>
+            <div class="project-card-status-bar">
+              <div class="project-card-status-fill"
+                   <%= raw "style='width: #{(project.status + 1) * 25}%'" %>></div>
+            </div>
+          </div>
+        </div>
+        <div class="project-card-info">
+          <div class="project-card-info-section">
+            <span class="card-info-section-title"></span>
+            <span class="card-info-label"><%= %></span> 
+          </div>
+        </div>
         <%= link_to 'Edit', edit_project_path(project) %>
-      </li>
-      <br>
+      </div>
     <% end %>
-  </ul>
+  </div>
 <% else %>
   <p>
-    You don't have any projects yet.
+    You don't have any current projects.
   </p>
 <% end %>

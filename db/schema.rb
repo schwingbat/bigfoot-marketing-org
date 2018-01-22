@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180116195907) do
+ActiveRecord::Schema.define(version: 20180122195036) do
 
   create_table "formats", force: :cascade do |t|
     t.string "name"
@@ -45,16 +45,17 @@ ActiveRecord::Schema.define(version: 20180116195907) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "owner_id"
+    t.integer "user_id"
     t.integer "format_id"
     t.integer "attachment_id"
     t.string "organization"
     t.string "location"
     t.datetime "when"
     t.datetime "due"
+    t.integer "status", default: 0
     t.index ["attachment_id"], name: "index_projects_on_attachment_id"
     t.index ["format_id"], name: "index_projects_on_format_id"
-    t.index ["owner_id"], name: "index_projects_on_owner_id"
+    t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
