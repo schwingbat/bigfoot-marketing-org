@@ -38,6 +38,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'sqlite3'
 end
 
 group :development do
@@ -47,6 +48,10 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :production do
+  gem 'pg'#, '~> 0.18.2'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -60,6 +65,3 @@ gem "active_link_to", "~> 1.0"
 
 # Added at 2018-01-22 15:08:54 -0800 by schwingbat:
 gem "bundler", "~> 1.16"
-
-# Added at 2018-01-22 15:10:26 -0800 by schwingbat:
-gem "pg", "~> 1.0"
