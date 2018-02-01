@@ -1,17 +1,19 @@
-default: &default
+sqlite: &sqlite
   adapter: sqlite3
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
 
-postgres: &postgres
+default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
-  <<: *default
+  <<: *sqlite
   database: db/development.sqlite3
 
 test:
-  <<: *default
+  <<: *sqlite
   database: db/test.sqlite3
 
 # As with config/secrets.yml, you never want to store sensitive information,
@@ -34,5 +36,5 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *postgres
+  <<: *default
   url: <%= ENV['DATABASE_URL'] %>
