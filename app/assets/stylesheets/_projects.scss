@@ -78,3 +78,11 @@
   display: block;
   padding: 0.6em 0;
 }
+
+.request-form {
+  border: 1px solid orange;
+  background-color: #fff;
+  padding: 1em;
+  display: flex;
+  flex-flow: column nowrap;
+}

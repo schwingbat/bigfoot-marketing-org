@@ -1,7 +1,6 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.where(user_id: current_user.id)
-                       .order(created_at: :desc)
+    @projects = Project.order(created_at: :desc)
   end
 
   def new
@@ -18,7 +17,6 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-    @project.user_id = current_user.id;
 
     if @project.save
       flash.notice = 'Project created.'
@@ -44,6 +42,15 @@ class ProjectsController < ApplicationController
 
   private def project_params
     params.require(:project)
-          .permit(:title, :description)
+          .permit(:title,
+                  :description,
+                  :organization,
+                  :location,
+                  :when,
+                  :due,
+                  :status,
+                  :contact_name,
+                  :contact_email,
+                  :contact_phone)
   end
 end

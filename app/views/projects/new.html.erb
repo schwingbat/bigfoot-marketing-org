@@ -2,7 +2,8 @@
 
 <%= form_with(scope: :project,
               local: true,
-              url: projects_path) do |form| %>
+              url: projects_path,
+              class: 'request-form') do |form| %>
 
   <% if @project.errors.any? %>
     <div id="error-explanation">
@@ -17,10 +18,7 @@
     </div>
   <% end %>
 
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
+  <h2>Contact Info</h2>
 
   <p>
     <%= form.label :organization %><br>
@@ -28,18 +26,45 @@
   </p>
 
   <p>
-    <%= form.label :location %><br>
-    <%= form.text_field :location %>
+    <%= form.label :contact_name %><br>
+    <%= form.text_field :contact_name %>
+  </p>
+
+  <p>
+    <%= form.label :contact_email %><br>
+    <%= form.text_field :contact_email %>
+  </p>
+
+  <p>
+    <%= form.label :contact_phone %><br>
+    <%= form.text_field :contact_phone %>
+  </p>
+
+  <p>
+    <input type="checkbox"> This is for an event
+  </p>
+
+  <div class="event-info">
+    <p>
+      <%= form.label :location %><br>
+      <%= form.text_field :location %>
+    </p>
+    <p>
+      <%= form.label :when, 'Date' %><br>
+      <%= form.text_field :when %>
+    </p>
+  </div>
+
+  <h2>Design Info</h2>
+
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
   </p>
 
   <p>
     <%= form.label :description %><br>
     <%= form.text_area :description %>
-  </p>
-
-  <p>
-    <%= form.label :when, 'Date' %><br>
-    <%= form.text_field :when %>
   </p>
 
   <p>

@@ -18,12 +18,14 @@
         </div>
         <div class="project-card-info">
           <div class="project-card-info-section">
-            <span class="card-info-section-title">Requested By</span>
+            <div>
+              <span class="card-info-section-title">Requested By</span> <%= project.contact_name %>
+            </div>
             <div>
               <span class="card-info-label">Organization</span> <%= project.organization %>
             </div>
             <div>
-              <span class="card-info-label">Email</span> <%= project.user.email %> 
+              <span class="card-info-label">Email</span> <%= project.contact_email %> 
             </div>
             
           </div>

@@ -5,6 +5,10 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
+  # Users go to site.url/request to create new projects
+  get 'request', to: 'projects#new'
+  post 'request', to: 'projects#create'
+
   devise_for :users, skip: [:sessions, :registrations]
   as :user do
     get 'signup', to: 'devise/registrations#new', as: :new_user_registration
