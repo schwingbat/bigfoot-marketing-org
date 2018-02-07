@@ -19,7 +19,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
 
     if @project.save
-      flash.notice = 'Project created.'
+      flash.notice = 'Project created. Bookmark this page to keep tabs on your project\'s progress.'
       redirect_to @project
     else
       render 'new'

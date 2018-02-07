@@ -3,19 +3,11 @@ class Project < ApplicationRecord
                     length: { minimum: 3 }
 
   has_many :formats, through: :project_format
+  has_many :attachments
 
   @@status_names = ['Submitted', 'Started', 'Proofing', 'Ready']
 
   def status_name
     @@status_names[self.status]
-  end
-
-  def requester
-    {
-      name: self.contact_name,
-      email: self.contact_email,
-      phone: self.contact_phone,
-      organization: self.organization
-    }
   end
 end

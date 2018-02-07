@@ -1,5 +1,3 @@
-<h1>This is the Create Project page</h1>
-
 <%= form_with(scope: :project,
               local: true,
               url: projects_path,
@@ -18,58 +16,95 @@
     </div>
   <% end %>
 
-  <h2>Contact Info</h2>
+  <div class="form-section">
+    <header>
+      <h2>Contact Info</h2>
+    </header>
 
-  <p>
-    <%= form.label :organization %><br>
-    <%= form.text_field :organization %>
-  </p>
+    <div class="form-split-group">
+      <div class="form-set">
+        <%= form.label :organization %>
+        <%= form.text_field :organization %>
+      </div>
+      <div class="form-set">
+        <%= form.label :contact_name %>
+        <%= form.text_field :contact_name %>
+      </div>
+    </div>
 
-  <p>
-    <%= form.label :contact_name %><br>
-    <%= form.text_field :contact_name %>
-  </p>
+    <div class="form-split-group">
+      <div class="form-set">
+        <%= form.label :contact_email %>
+        <%= form.text_field :contact_email %>
+      </div>
 
-  <p>
-    <%= form.label :contact_email %><br>
-    <%= form.text_field :contact_email %>
-  </p>
-
-  <p>
-    <%= form.label :contact_phone %><br>
-    <%= form.text_field :contact_phone %>
-  </p>
-
-  <p>
-    <input type="checkbox"> This is for an event
-  </p>
-
-  <div class="event-info">
-    <p>
-      <%= form.label :location %><br>
-      <%= form.text_field :location %>
-    </p>
-    <p>
-      <%= form.label :when, 'Date' %><br>
-      <%= form.text_field :when %>
-    </p>
+      <div class="form-set">
+        <%= form.label :contact_phone %>
+        <%= form.text_field :contact_phone %>
+      </div>
+    </div>
   </div>
 
-  <h2>Design Info</h2>
+  <div class="form-section">
+    <input type="checkbox" id="event-checkbox"> This is for an event
 
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
+    <div id="event-info">
+      <header>
+        <h2>Event Info</h2>
+      </header>
+      <div class="form-set">
+        <%= form.label :title %><br>
+        <%= form.text_field :title %>
+      </div>
+      <div class="form-split-group">
+        <div class="form-set">
+          <%= form.label :location %>
+          <%= form.text_field :location %>
+        </div>
+        <div class="form-set">
+          <%= form.label :when, 'Event Date' %>
+          <%= form.text_field :when %>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <p>
-    <%= form.label :description %><br>
-    <%= form.text_area :description %>
-  </p>
+  <div class="form-section">
+    <header>
+      <h2>Design</h2>
+    </header>
 
-  <p>
-    <%= form.submit %>
-  </p>
+    <div class="form-set">
+      <%= form.label :description %>
+      <%= form.text_area :description %>
+    </div>
+
+    <div class="form-set">
+      <%= form.label 'Attach files' %>
+    </div>
+  </div>
+
+  <div class="form-section">
+    <%= form.submit 'Submit', class: 'form-submit' %>
+  </div>
+  
 <% end %>
 
+<form class="dropzone" action="/project/<%= @project.id %>/files/upload"></form>
+
 <%= link_to 'Back', projects_path %>
+
+<script>
+  var eventSection = document.getElementById('event-info');
+  var checkbox = document.getElementById('event-checkbox');
+
+  eventSection.classList.add('hidden');
+
+  checkbox.addEventListener('click', function() {
+    if (this.checked) {
+      eventSection.classList.remove('hidden');
+    } else {
+      eventSection.classList.add('hidden');
+    }
+  });
+</script>

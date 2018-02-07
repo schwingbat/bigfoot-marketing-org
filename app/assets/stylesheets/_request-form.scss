@@ -1,0 +1,10 @@
+.request-form {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#event-info {
+  &.hidden {
+    display: none;
+  }
+}

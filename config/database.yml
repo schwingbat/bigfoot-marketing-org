@@ -1,20 +1,22 @@
-sqlite: &sqlite
-  adapter: sqlite3
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  timeout: 5000
-
 default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
-  <<: *sqlite
-  database: db/development.sqlite3
+  <<: *default
+  database: bigfoot_marketing_dev
+  username: bigfoot
+  password: password
+  host: localhost
+
 
 test:
-  <<: *sqlite
-  database: db/test.sqlite3
+  <<: *default
+  database: bigfoot_marketing_test
+  username: bigfoot
+  password: password
+  host: localhost
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
